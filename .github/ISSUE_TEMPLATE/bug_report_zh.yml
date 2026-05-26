@@ -1,0 +1,105 @@
+name: Bug 反馈（中文）
+description: 报告一个问题或异常，帮助我们修复
+title: "[Bug] "
+labels: ["bug", "lang:zh"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！请尽量提供详细信息，便于我们定位问题。
+
+        **隐私提示**：日志默认不包含敏感信息，但可能会出现 DAW 工程文件路径、插件作者名等。如果不便公开，可改用邮件或私信附件。
+
+  - type: input
+    id: version
+    attributes:
+      label: Bridge Ultra 版本
+      description: 在「设置」面板底部，或主界面右下角可看到
+      placeholder: 例如 1.1.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统
+      options:
+        - Windows 11
+        - Windows 10
+        - 其他（在描述里说明）
+    validations:
+      required: true
+
+  - type: input
+    id: daw
+    attributes:
+      label: DAW（宿主软件）
+      description: 名称 + 版本 + 32/64 位
+      placeholder: 例如 Studio One 6.6.2 (64-bit)
+    validations:
+      required: true
+
+  - type: input
+    id: plugin
+    attributes:
+      label: 涉及的插件
+      description: 插件名称 + 厂商；如果是多个插件都有问题就都列出来
+      placeholder: 例如 Waves Renaissance Compressor / TC Native Reverb Plus
+    validations:
+      required: false
+
+  - type: textarea
+    id: what-happens
+    attributes:
+      label: 实际表现
+      description: 出了什么问题
+      placeholder: |
+        例如：
+        - 第二次打开 GUI 时窗口空白
+        - DAW 关闭后进程残留
+        - 安装时报「拷贝失败」
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期表现
+      description: 你认为应该是什么效果
+    validations:
+      required: false
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: 复现步骤
+      description: 我们按这些步骤能稳定复现吗？还是偶发？
+      placeholder: |
+        1. 打开 DAW，加载插件 X
+        2. 关闭插件窗口
+        3. 再次打开插件窗口 → GUI 空白
+        是否每次都能复现？是 / 偶发（约 X 次中 1 次）
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 日志
+      description: |
+        请把诊断日志贴上来或作为附件上传。
+        - 主界面右下角 →「诊断日志」（点击直接打开日志目录）
+        - 路径：`%LOCALAPPDATA%\BridgeUltra\logs\`
+        - 重点关注 `installer.log`、`proxy.log`、`host32.log`
+        - 在「设置」里把日志级别调到 **debug** 后再次复现，日志更详细
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 其他信息
+      description: 截图、视频、机器配置、最近改过什么 — 任何你觉得相关的内容
+    validations:
+      required: false

@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 使用问题 / 提问
+    url: https://github.com/GeekASMR/BridgeUltra/discussions
+    about: 不确定是不是 bug，先到 Discussions 提问
+  - name: General questions / discussions
+    url: https://github.com/GeekASMR/BridgeUltra/discussions
+    about: For usage questions, please post in Discussions first

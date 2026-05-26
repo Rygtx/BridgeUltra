@@ -1,0 +1,87 @@
+name: Bug report (English)
+description: Report a problem so we can fix it
+title: "[Bug] "
+labels: ["bug", "lang:en"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. Please provide as much detail as possible.
+
+        **Privacy note**: Logs do not contain credentials but may include DAW project paths and plugin vendor names. If you can't share publicly, contact us privately.
+
+  - type: input
+    id: version
+    attributes:
+      label: Bridge Ultra version
+      placeholder: e.g. 1.1.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: OS
+      options:
+        - Windows 11
+        - Windows 10
+        - Other (describe below)
+    validations:
+      required: true
+
+  - type: input
+    id: daw
+    attributes:
+      label: DAW
+      description: Name + version + 32/64-bit
+      placeholder: e.g. Studio One 6.6.2 (64-bit)
+    validations:
+      required: true
+
+  - type: input
+    id: plugin
+    attributes:
+      label: Affected plug-in(s)
+      placeholder: e.g. Waves Renaissance Compressor / TC Native Reverb Plus
+
+  - type: textarea
+    id: what-happens
+    attributes:
+      label: What happens
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+      placeholder: |
+        1. Open DAW, load plug-in X
+        2. Close the plug-in window
+        3. Reopen → blank GUI
+        Reproduces every time? Yes / sometimes (~1 in N)
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        Attach the diagnostic logs or paste them here.
+        - Main window footer → "Diagnostic logs" opens the folder
+        - Path: `%LOCALAPPDATA%\BridgeUltra\logs\`
+        - Most useful: `installer.log`, `proxy.log`, `host32.log`
+        - In "Settings" set log level to **debug** before reproducing for more detail.
+      render: shell
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+      description: Screenshots, machine config, recent changes
